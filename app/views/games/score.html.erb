@@ -1,0 +1,14 @@
+<h1>Result</h1>
+<% if @message[:message] == 'well done' %>
+  <p><strong>Congratulations!</strong> <%= @message[:word].upcase %> is a valid English word!</p>
+<% elsif @message[:message] == 'not word' %>
+  <p>Sorry but <strong><%= @message[:word].upcase %></strong> is not a valid English word!</p>
+<% else %>
+  <p>Sorry but <strong><%= @message[:word].upcase %></strong> can't be built out of
+    <%= @letters.join(',') %>
+ </p>
+<% end %>
+
+<p>Your score: <%= @message[:score] %></p>
+
+<%= link_to "Play again", "/new" %>
